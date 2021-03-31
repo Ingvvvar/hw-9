@@ -1,24 +1,23 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import Counter from './components/Counter/Сounter';
+import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary';
 
-function App() {
-  return (
+const App = () => {
+  const refreshPage = () => window.history.go(0)
+  const el = (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <ErrorBoundary>
+        <Counter />
+      </ErrorBoundary>
+      <hr />
+      <button onClick={refreshPage}>
+        Refresh Page
+    </button>
     </div>
+  )
+  return (
+    el
   );
 }
 
